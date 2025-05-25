@@ -144,6 +144,16 @@ export default class Editor extends Component {
     ]
   }, saveImmediately);
 
+  onAppendTarget = (target, saveImmediately) => this.updateCurrentAnnotation({
+    target: [
+      ...(Array.isArray(this.state.currentAnnotation.target) ? 
+        this.state.currentAnnotation.target : 
+        [this.state.currentAnnotation.target]
+      ),
+      { ...target, ...this.creationMeta(target) }
+    ]
+  }, saveImmediately);
+
   onUpdateBody = (previous, updated, saveImmediately) => this.updateCurrentAnnotation({
     body: this.state.currentAnnotation.bodies.map(body =>
       body === previous ? { ...updated, ...this.creationMeta(updated) } : body)
@@ -151,6 +161,12 @@ export default class Editor extends Component {
 
   onRemoveBody = (body, saveImmediately) => this.updateCurrentAnnotation({
     body: this.state.currentAnnotation.bodies.filter(b => b !== body)
+  }, saveImmediately);
+
+  onRemoveTarget = (target, saveImmediately) => this.updateCurrentAnnotation({
+    target: Array.isArray(this.state.currentAnnotation.target) ?
+      this.state.currentAnnotation.target.filter(t => t !== target) :
+      null
   }, saveImmediately);
 
   /**
