@@ -150,8 +150,9 @@ export default class Editor extends Component {
         this.state.currentAnnotation.target : 
         [this.state.currentAnnotation.target]
       ),
-      { ...target, ...this.creationMeta(target) }
+      target
     ]
+    // TODO: update modified timestamp
   }, saveImmediately);
 
   onUpdateBody = (previous, updated, saveImmediately) => this.updateCurrentAnnotation({
