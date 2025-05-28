@@ -17,6 +17,8 @@ export default class WrappedWidget extends Component {
       onUpdateBody: (previous, updated, saveImmediately) => props.onUpdateBody(previous, updated, saveImmediately),
       onUpsertBody: (previous, updated, saveImmediately) => props.onUpsertBody(previous, updated, saveImmediately),
       onRemoveBody: (body, saveImmediately) => props.onRemoveBody(body, saveImmediately),
+      onAppendTarget: (target, saveImmediately) => props.onAppendTarget(target, saveImmediately),
+      onRemoveTarget: (target, saveImmediately) => props.onRemoveTarget(target, saveImmediately),
       onBatchModify: (diffs, saveImmediately)  => props.onBatchModify(diffs, saveImmediately),
       onSetProperty: (property, value) =>  props.onSetProperty(property, value),
       onAddContext: uri => props.onAddContext(uri),
