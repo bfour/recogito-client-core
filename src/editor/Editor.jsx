@@ -4,6 +4,7 @@ import { getWidget, DEFAULT_WIDGETS } from './widgets';
 import { TrashIcon } from '../Icons';
 import setPosition from './setPosition';
 import i18n from '../i18n';
+import isEqual from 'lodash/isEqual';
 
 /** We need to compare bounds by value, not by object ref **/
 const bounds = elem => {
@@ -166,7 +167,7 @@ export default class Editor extends Component {
 
   onRemoveTarget = (target, saveImmediately) => this.updateCurrentAnnotation({
     target: Array.isArray(this.state.currentAnnotation.target) ?
-      this.state.currentAnnotation.target.filter(t => t !== target) :
+      this.state.currentAnnotation.target.filter(t => !isEqual(t, target)) :
       null
   }, saveImmediately);
 
