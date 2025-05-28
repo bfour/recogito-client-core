@@ -371,6 +371,8 @@ export default class Editor extends Component {
                 onUpdateBody: this.onUpdateBody,
                 onRemoveBody: this.onRemoveBody,
                 onUpsertBody: this.onUpsertBody,
+                onAppendTarget: this.onAppendTarget,
+                onRemoveTarget: this.onRemoveTarget,
                 onBatchModify: this.onBatchModify,
                 onSetProperty: this.onSetProperty,
                 onAddContext: this.onAddContext,
