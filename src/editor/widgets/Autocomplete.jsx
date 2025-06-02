@@ -136,6 +136,7 @@ const Autocomplete = props => {
       <div>
         <input
           onKeyDown={onKeyDown}
+          onFocus={onKeyDown}
           onChange={onChange}
           value={value}
           placeholder={props.placeholder} />
