@@ -77,6 +77,13 @@ const Autocomplete = props => {
     setHighlightedIndex(null);
   }
 
+
+  const onFocus = evt => {
+    console.log('onFocus', evt);
+    if (Array.isArray(props.vocabulary))
+      setSuggestions(props.vocabulary);
+  }
+
   const onKeyDown = evt => {
     if (evt.which === 13) {
       // Enter
@@ -136,7 +143,7 @@ const Autocomplete = props => {
       <div>
         <input
           onKeyDown={onKeyDown}
-          onFocus={onKeyDown}
+          onFocus={onFocus}
           onChange={onChange}
           value={value}
           placeholder={props.placeholder} />
