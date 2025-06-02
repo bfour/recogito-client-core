@@ -84,6 +84,11 @@ const Autocomplete = props => {
       setSuggestions(props.vocabulary);
   }
 
+  const onBlur = evt => {
+    console.log('onBlur', evt);
+    if (props.onCancel) props.onCancel();
+  }
+
   const onKeyDown = evt => {
     if (evt.which === 13) {
       // Enter
@@ -144,6 +149,7 @@ const Autocomplete = props => {
         <input
           onKeyDown={onKeyDown}
           onFocus={onFocus}
+          onBlur={onBlur}
           onChange={onChange}
           value={value}
           placeholder={props.placeholder} />
